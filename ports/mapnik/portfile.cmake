@@ -10,6 +10,7 @@ vcpkg_from_github(
 
 vcpkg_check_features(OUT_FEATURE_OPTIONS FEATURE_OPTIONS
     FEATURES
+        "avif"                      USE_AVIF
         "jpeg"                      USE_JPEG
         "png"                       USE_PNG
         "tiff"                      USE_TIFF
@@ -20,17 +21,17 @@ vcpkg_check_features(OUT_FEATURE_OPTIONS FEATURE_OPTIONS
         "grid-renderer"             USE_GRID_RENDERER
         "svg-renderer"              USE_SVG_RENDERER
         "input-csv"                 USE_PLUGIN_INPUT_CSV
-        "input-gdal"                USE_PLUGIN_INPUT_GDAL
+        "input-gdal-odr"            USE_PLUGIN_INPUT_GDAL_OGR
         "input-geobuf"              USE_PLUGIN_INPUT_GEOBUF
         "input-geojson"             USE_PLUGIN_INPUT_GEOJSON
-        "input-ogr"                 USE_PLUGIN_INPUT_OGR
-        "input-pgraster"            USE_PLUGIN_INPUT_PGRASTER
-        "input-postgis"             USE_PLUGIN_INPUT_POSTGIS
+        "input-postgis-pgraster"    USE_PLUGIN_INPUT_POSTGIS_PGRASTER
         "input-raster"              USE_PLUGIN_INPUT_RASTER
         "input-shape"               USE_PLUGIN_INPUT_SHAPE
         "input-sqlite"              USE_PLUGIN_INPUT_SQLITE
         "input-topojson"            USE_PLUGIN_INPUT_TOPOJSON
         "viewer"                    BUILD_DEMO_VIEWER
+        "tiles"                     USE_PLUGIN_INPUT_TILES
+        "tiles"                     USE_PLUGIN_INPUT_TILES_SSL
         "utility-geometry-to-wkb"   BUILD_UTILITY_GEOMETRY_TO_WKB
         "utility-mapnik-index"      BUILD_UTILITY_MAPNIK_INDEX
         "utility-mapnik-render"     BUILD_UTILITY_MAPNIK_RENDER

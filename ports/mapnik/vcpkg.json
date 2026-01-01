@@ -1,6 +1,6 @@
 {
   "name": "mapnik",
-  "version": "4.0.7",
+  "version": "4.2.0",
   "description": "Mapnik is an open source toolkit for developing mapping applications.",
   "homepage": "https://github.com/mapnik/mapnik",
   "license": "LGPL-2.1-only",
@@ -74,6 +74,12 @@
     "webp"
   ],
   "features": {
+    "avif": {
+      "description": "adds avif support",
+      "dependencies": [
+        "libavif"
+      ]
+    },
     "cairo": {
       "description": "Cairo renderer",
       "dependencies": [
@@ -90,8 +96,8 @@
         "boost-algorithm"
       ]
     },
-    "input-gdal": {
-      "description": "GDAL input plugin",
+    "input-gdal-odr": {
+      "description": "adds plugin input gdal+ogr",
       "dependencies": [
         "gdal"
       ]
@@ -111,14 +117,8 @@
         "gdal"
       ]
     },
-    "input-pgraster": {
-      "description": "PGRASTER input plugin",
-      "dependencies": [
-        "libpq"
-      ]
-    },
-    "input-postgis": {
-      "description": "POSTGIS input plugin",
+    "input-postgis-pgraster": {
+      "description": "adds plugin input postgis+pgraster",
       "dependencies": [
         "libpq"
       ]
@@ -172,6 +172,15 @@
       "description": "add tiff support",
       "dependencies": [
         "tiff"
+      ]
+    },
+    "tiles": {
+      "description": "adds plugin input tiles",
+      "dependencies": [
+        "boost-url",
+        "boost-context",
+        "openssl",
+        "sqlite3"
       ]
     },
     "utility-geometry-to-wkb": {
