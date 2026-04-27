@@ -6133,8 +6133,8 @@
       "port-version": 0
     },
     "logme": {
-      "baseline": "2.4.15",
-      "port-version": 1
+      "baseline": "2.4.16",
+      "port-version": 0
     },
     "loguru": {
       "baseline": "2.1.0",
