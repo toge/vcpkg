@@ -1,8 +1,8 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 20cf576..ecf5070 100644
+index 1cf379c..650fc72 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -168,7 +168,7 @@ check_function_exists(symlink HAVE_SYMLINK)
+@@ -169,7 +169,7 @@ check_function_exists(symlink HAVE_SYMLINK)
  # Check for readlink support
  check_function_exists(readlink HAVE_READLINK)
  
@@ -11,59 +11,37 @@ index 20cf576..ecf5070 100644
  list(APPEND MINIZIP_HDR ${CMAKE_CURRENT_BINARY_DIR}/mz_config.h)
  
  if(MZ_LIBCOMP)
-@@ -317,7 +317,6 @@ if(MZ_LZMA)
-     if(NOT MZ_FORCE_FETCH_LIBS)
-         find_package(PkgConfig QUIET)
-         if(PKGCONFIG_FOUND)
--            pkg_check_modules(LIBLZMA liblzma)
+@@ -206,7 +206,7 @@ if(MZ_ZLIB)
+         if(BUILD_SHARED_LIBS)
+             list(APPEND MINIZIP_LIB_PUBLIC zlib-ng::zlib)
+         else()
+-            list(APPEND MINIZIP_LIB_PUBLIC zlib-ng::zlibstatic)
++            list(APPEND MINIZIP_LIB_PUBLIC zlib-ng::zlib)
          endif()
-         if(NOT LIBLZMA_FOUND)
-             find_package(LibLZMA QUIET)
-@@ -357,7 +356,7 @@ endif()
  
+         set(PC_PRIVATE_DEPS "zlib-ng")
+@@ -363,6 +363,7 @@ endif()
  if(MZ_PPMD)
      message(STATUS "Using PPMD")
--
+ 
 +if(0)
      clone_repo(ppmd https://github.com/ip7z/7zip "26.00")
  
      # get the 7zip/PPMd version number
-@@ -365,7 +364,7 @@ if(MZ_PPMD)
+@@ -370,6 +371,7 @@ if(MZ_PPMD)
      string(REGEX MATCH "MY_VERSION_NUMBERS \"([0-9]*\.[0-9]*)\"" _ ${version})
      set(7ZIP_VERSION_NUMBER ${CMAKE_MATCH_1})
      message(STATUS "  Found 7Zip/PPMd ${7ZIP_VERSION_NUMBER}")
--
 +endif()
+ 
      # The PPMd repository does not support cmake so we have to create
      # a PPMd library ourselves
-     set(PPMD_SRC
-@@ -398,10 +397,9 @@ if(MZ_ZSTD)
+@@ -399,7 +401,7 @@ endif()
+ if(MZ_ZSTD)
+     # Check if zstd is present
      if(NOT MZ_FORCE_FETCH_LIBS)
-         find_package(PkgConfig QUIET)
-         if(PKGCONFIG_FOUND)
--            pkg_check_modules(ZSTD libzstd)
-         endif()
-         if(NOT ZSTD_FOUND)
--            find_package(ZSTD QUIET)
-+            find_package(ZSTD NAMES zstd REQUIRED)
-             if(ZSTD_FOUND)
-                 if(TARGET zstd::libzstd_static)
-                     list(APPEND ZSTD_LIBRARIES zstd::libzstd_static)
-@@ -456,7 +454,6 @@ if(MZ_OPENSSL)
-     # Check to see if openssl installation is present
-     find_package(PkgConfig)
-     if(PKGCONFIG_FOUND)
--        pkg_check_modules(OPENSSL openssl)
+-        find_package(zstd QUIET CONFIG)
++        find_package(ZSTD NAMES zstd CONFIG REQUIRED)
      endif()
-     if(NOT OPENSSL_FOUND)
-         find_package(OpenSSL)
-@@ -477,8 +474,8 @@ if(MZ_OPENSSL)
-         endif()
  
-         foreach(i ${OPENSSL_LIBRARIES})
--            set(PC_PRIVATE_LIBS "${PC_PRIVATE_LIBS} -l${i}")
-         endforeach()
-+        set(PC_PRIVATE_DEPS "${PC_PRIVATE_DEPS} openssl")
-     else()
-         message(STATUS "OpenSSL library not found")
- 
+     if(zstd_FOUND AND NOT MZ_FORCE_FETCH_LIBS)
