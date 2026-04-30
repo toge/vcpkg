@@ -4,7 +4,6 @@
   "description": "Header-only C++20 IPC library using shared-memory ring buffers.",
   "homepage": "https://github.com/imakris/sintra",
   "license": "BSD-2-Clause",
-  "supports": "!android",
   "dependencies": [
     {
       "name": "vcpkg-cmake",
