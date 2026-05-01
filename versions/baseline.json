@@ -1737,7 +1737,7 @@
       "port-version": 0
     },
     "cinatra": {
-      "baseline": "0.9.9",
+      "baseline": "1.0.0",
       "port-version": 0
     },
     "cista": {
