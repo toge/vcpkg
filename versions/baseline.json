@@ -9253,8 +9253,8 @@
       "port-version": 0
     },
     "simpleble": {
-      "baseline": "0.12.1",
-      "port-version": 1
+      "baseline": "0.14.0",
+      "port-version": 0
     },
     "simpleini": {
       "baseline": "4.25",
