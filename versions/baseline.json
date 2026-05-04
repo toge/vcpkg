@@ -210,7 +210,7 @@
     },
     "apsi": {
       "baseline": "0.11.0",
-      "port-version": 1
+      "port-version": 2
     },
     "aravis": {
       "baseline": "0.8.36",
@@ -1733,7 +1733,7 @@
       "port-version": 0
     },
     "cimg": {
-      "baseline": "3.7.4",
+      "baseline": "3.7.5",
       "port-version": 0
     },
     "cinatra": {
@@ -2986,7 +2986,7 @@
     },
     "fdk-aac": {
       "baseline": "2.0.3",
-      "port-version": 0
+      "port-version": 1
     },
     "fdlibm": {
       "baseline": "5.3",
@@ -2998,7 +2998,7 @@
     },
     "ffmpeg": {
       "baseline": "8.1",
-      "port-version": 3
+      "port-version": 4
     },
     "ffmpeg-bin2c": {
       "baseline": "8.1",
@@ -3269,7 +3269,7 @@
       "port-version": 0
     },
     "gamenetworkingsockets": {
-      "baseline": "1.5.0",
+      "baseline": "1.5.1",
       "port-version": 0
     },
     "gamma": {
@@ -3781,7 +3781,7 @@
       "port-version": 0
     },
     "hical61-hical": {
-      "baseline": "2.2.0",
+      "baseline": "2.4.0",
       "port-version": 0
     },
     "hidapi": {
@@ -4229,7 +4229,7 @@
       "port-version": 1
     },
     "kcp": {
-      "baseline": "1.7",
+      "baseline": "1.7.1",
       "port-version": 0
     },
     "kcrash": {
@@ -4545,7 +4545,7 @@
       "port-version": 1
     },
     "kuku": {
-      "baseline": "2.1.0",
+      "baseline": "3.0.0",
       "port-version": 0
     },
     "kvasir-mpl": {
@@ -5824,6 +5824,10 @@
       "baseline": "1.3.7",
       "port-version": 4
     },
+    "libvpl": {
+      "baseline": "2.16.0",
+      "port-version": 0
+    },
     "libvpx": {
       "baseline": "1.16.0",
       "port-version": 1
@@ -6189,7 +6193,7 @@
       "port-version": 1
     },
     "luau": {
-      "baseline": "0.718",
+      "baseline": "0.719",
       "port-version": 0
     },
     "luminoengine": {
@@ -7465,7 +7469,7 @@
       "port-version": 1
     },
     "orange-math": {
-      "baseline": "5.1.2",
+      "baseline": "5.2.0",
       "port-version": 0
     },
     "orange-vmprotect-sdk": {
@@ -7817,7 +7821,7 @@
       "port-version": 2
     },
     "podofo": {
-      "baseline": "1.0.3",
+      "baseline": "1.1.0",
       "port-version": 0
     },
     "poissonrecon": {
@@ -9053,12 +9057,12 @@
       "port-version": 0
     },
     "sdl3": {
-      "baseline": "3.4.6",
+      "baseline": "3.4.8",
       "port-version": 0
     },
     "sdl3-image": {
-      "baseline": "3.4.2",
-      "port-version": 1
+      "baseline": "3.4.4",
+      "port-version": 0
     },
     "sdl3-mixer": {
       "baseline": "3.2.0",
@@ -9249,8 +9253,8 @@
       "port-version": 0
     },
     "simpleble": {
-      "baseline": "0.12.1",
-      "port-version": 1
+      "baseline": "0.14.0",
+      "port-version": 0
     },
     "simpleini": {
       "baseline": "4.25",
@@ -10321,7 +10325,7 @@
       "port-version": 0
     },
     "unqlite": {
-      "baseline": "2025-04-29",
+      "baseline": "1.2.1",
       "port-version": 0
     },
     "unrar": {
@@ -10353,7 +10357,7 @@
       "port-version": 0
     },
     "usearch": {
-      "baseline": "2.25.1",
+      "baseline": "2.25.2",
       "port-version": 0
     },
     "usockets": {
