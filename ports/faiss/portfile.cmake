@@ -5,6 +5,7 @@ vcpkg_from_github(
     SHA512 c1cbf92a96dfee0a27dc0cb8d719a451efec6ea44a73bd4a8b764593624bc0e074da5aa6bca19fbc904899416aab2a82aa5659d06bb07174624cb4449252ac07
     HEAD_REF master
     PATCHES
+        cuda13-msvc-preprocessor.patch
         msvc-template.diff
         undef-small.diff
 )
