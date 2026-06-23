@@ -2,7 +2,7 @@ diff --git a/extras/Build/CMake/JUCEModuleSupport.cmake b/extras/Build/CMake/JUC
 index e89cc5d..afefe2d 100644
 --- a/extras/Build/CMake/JUCEModuleSupport.cmake
 +++ b/extras/Build/CMake/JUCEModuleSupport.cmake
-@@ -390,10 +390,40 @@ function(_juce_create_pkgconfig_target name)
+@@ -390,10 +390,42 @@ function(_juce_create_pkgconfig_target name)
          return()
      endif()
  
@@ -10,8 +10,10 @@ index e89cc5d..afefe2d 100644
 +    set(link_libs "")
 +    if("alsa" IN_LIST JUCE_ARG_UNPARSED_ARGUMENTS)
 +        list(REMOVE_ITEM JUCE_ARG_UNPARSED_ARGUMENTS "alsa")
-+        find_package(ALSA REQUIRED)
-+        list(APPEND link_libs ALSA::ALSA)
++        if(JUCE_ALSA)
++            find_package(ALSA REQUIRED)
++            list(APPEND link_libs ALSA::ALSA)
++        endif()
 +    endif()
 +    if("fontconfig" IN_LIST JUCE_ARG_UNPARSED_ARGUMENTS)
 +        list(REMOVE_ITEM JUCE_ARG_UNPARSED_ARGUMENTS "fontconfig")

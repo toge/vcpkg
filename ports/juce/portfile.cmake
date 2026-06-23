@@ -16,10 +16,12 @@ vcpkg_from_github(
     prefer-cmake.diff
     vcpkg-compile-definitions.diff
     avoid-macos-15-deprecations.patch
+    android-api-28-fonts.diff
 )
 file(REMOVE_RECURSE "${SOURCE_PATH}/modules/juce_audio_devices/native/oboe")
 
 set(feature_compile_definitions
+    "alsa"        JUCE_ALSA
     "curl"        JUCE_USE_CURL
     "fontconfig"  JUCE_USE_FONTCONFIG
     "freetype"    JUCE_USE_FREETYPE
@@ -50,6 +52,7 @@ endfunction()
 
 vcpkg_check_features(OUT_FEATURE_OPTIONS FEATURE_OPTIONS
 FEATURES
+  "alsa"       JUCE_ALSA
   "extras"      JUCE_BUILD_EXTRAS
   "ladspa"      JUCE_PLUGINHOST_LADSPA
 )
@@ -130,6 +133,7 @@ vcpkg_cmake_configure(
     -DJUCE_TOOL_INSTALL_DIR=bin
     ${FEATURE_OPTIONS}
   MAYBE_UNUSED_VARIABLES
+    JUCE_ALSA
     JUCE_TOOL_INSTALL_DIR
     JUCE_PLUGINHOST_LADSPA
 )
