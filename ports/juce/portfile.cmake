@@ -53,7 +53,10 @@ endfunction()
 vcpkg_check_features(OUT_FEATURE_OPTIONS FEATURE_OPTIONS
 FEATURES
   "alsa"       JUCE_ALSA
+  "curl"       JUCE_USE_CURL
   "extras"      JUCE_BUILD_EXTRAS
+  "fontconfig"  JUCE_USE_FONTCONFIG
+  "freetype"    JUCE_USE_FREETYPE
   "ladspa"      JUCE_PLUGINHOST_LADSPA
 )
 # Based on https://github.com/juce-framework/JUCE/blob/master/docs/Linux%20Dependencies.md
@@ -134,6 +137,9 @@ vcpkg_cmake_configure(
     ${FEATURE_OPTIONS}
   MAYBE_UNUSED_VARIABLES
     JUCE_ALSA
+    JUCE_USE_CURL
+    JUCE_USE_FONTCONFIG
+    JUCE_USE_FREETYPE
     JUCE_TOOL_INSTALL_DIR
     JUCE_PLUGINHOST_LADSPA
 )
