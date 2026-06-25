@@ -16,7 +16,7 @@ vcpkg_from_github(
     prefer-cmake.diff
     vcpkg-compile-definitions.diff
     avoid-macos-15-deprecations.patch
-    android-api-28-fonts.diff
+    android-weak-api-deleters.diff
 )
 file(REMOVE_RECURSE "${SOURCE_PATH}/modules/juce_audio_devices/native/oboe")
 
@@ -123,6 +123,9 @@ endif()
 if(VCPKG_CROSSCOMPILING)
   # Constructed with CURRENT_INSTALLED_DIR, for vcpkg_cmake_config_fixup.
   list(APPEND FEATURE_OPTIONS "-DWITH_JUCEAIDE=${CURRENT_INSTALLED_DIR}/../${HOST_TRIPLET}/tools/${PORT}/juceaide${VCPKG_HOST_EXECUTABLE_SUFFIX}")
+endif()
+if(VCPKG_TARGET_IS_ANDROID)
+  list(APPEND FEATURE_OPTIONS -DANDROID_WEAK_API_DEFS=ON)
 endif()
 
 vcpkg_cmake_configure(
