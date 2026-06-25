@@ -1,0 +1,48 @@
+diff --git a/modules/juce_graphics/native/juce_Fonts_android.cpp b/modules/juce_graphics/native/juce_Fonts_android.cpp
+index 469f9f3..a039629 100644
+--- a/modules/juce_graphics/native/juce_Fonts_android.cpp
++++ b/modules/juce_graphics/native/juce_Fonts_android.cpp
+@@ -301,10 +301,30 @@ public:
+         return from (FontOptions{}.withName ("Roboto"));
+     }
+ 
++    struct AFontMatcherDeleter
++    {
++        void operator() (AFontMatcher* matcher) const
++        {
++            if (matcher != nullptr)
++                if (__builtin_available (android 29, *))
++                    AFontMatcher_destroy (matcher);
++        }
++    };
++
++    struct AFontDeleter
++    {
++        void operator() (AFont* fontToClose) const
++        {
++            if (fontToClose != nullptr)
++                if (__builtin_available (android 29, *))
++                    AFont_close (fontToClose);
++        }
++    };
++
+     static JUCE_INTRODUCED_IN_29 Typeface::Ptr findGenericTypefaceWithMatcher (const Font& font)
+     {
+-        using AFontMatcherPtr = std::unique_ptr<AFontMatcher, FunctionPointerDestructor<AFontMatcher_destroy>>;
+-        using AFontPtr = std::unique_ptr<AFont, FunctionPointerDestructor<AFont_close>>;
++        using AFontMatcherPtr = std::unique_ptr<AFontMatcher, AFontMatcherDeleter>;
++        using AFontPtr = std::unique_ptr<AFont, AFontDeleter>;
+ 
+         constexpr uint16_t testString[] { 't', 'e', 's', 't' };
+ 
+@@ -356,8 +376,8 @@ private:
+ 
+     JUCE_INTRODUCED_IN_29 Typeface::Ptr matchWithAFontMatcher (const String& text, const String& language) const
+     {
+-        using AFontMatcherPtr = std::unique_ptr<AFontMatcher, FunctionPointerDestructor<AFontMatcher_destroy>>;
+-        using AFontPtr = std::unique_ptr<AFont, FunctionPointerDestructor<AFont_close>>;
++        using AFontMatcherPtr = std::unique_ptr<AFontMatcher, AFontMatcherDeleter>;
++        using AFontPtr = std::unique_ptr<AFont, AFontDeleter>;
+ 
+         const AFontMatcherPtr matcher { AFontMatcher_create() };
+ 
