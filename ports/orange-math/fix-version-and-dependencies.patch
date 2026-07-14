@@ -1,0 +1,28 @@
+diff --git a/VERSION b/VERSION
+index 4b2b25f..c7e325f 100644
+--- a/VERSION
++++ b/VERSION
+@@ -1 +1 @@
+-5.4.0
+\ No newline at end of file
++5.5.0
+\ No newline at end of file
+diff --git a/cmake/omathConfig.cmake.in b/cmake/omathConfig.cmake.in
+index dbf4bd3..bd56157 100644
+--- a/cmake/omathConfig.cmake.in
++++ b/cmake/omathConfig.cmake.in
+@@ -6,6 +6,14 @@ if (@OMATH_IMGUI_INTEGRATION@)
+     find_dependency(imgui CONFIG)
+ endif()
+ 
++if (@OMATH_ENABLE_LUA@)
++    find_dependency(Lua)
++endif()
++
++if (@OMATH_ENABLE_HOOKING@)
++    find_dependency(safetyhook CONFIG)
++endif()
++
+ # Load the targets for the omath library
+ include("${CMAKE_CURRENT_LIST_DIR}/omathTargets.cmake")
+ check_required_components(omath)
