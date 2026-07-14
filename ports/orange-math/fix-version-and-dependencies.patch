@@ -11,7 +11,7 @@ diff --git a/cmake/omathConfig.cmake.in b/cmake/omathConfig.cmake.in
 index dbf4bd3..bd56157 100644
 --- a/cmake/omathConfig.cmake.in
 +++ b/cmake/omathConfig.cmake.in
-@@ -6,6 +6,14 @@ if (@OMATH_IMGUI_INTEGRATION@)
+@@ -6,6 +6,17 @@ if (@OMATH_IMGUI_INTEGRATION@)
      find_dependency(imgui CONFIG)
  endif()
  
@@ -21,6 +21,9 @@ index dbf4bd3..bd56157 100644
 +
 +if (@OMATH_ENABLE_HOOKING@)
 +    find_dependency(safetyhook CONFIG)
++    if (UNIX AND NOT APPLE)
++        find_dependency(OpenGL)
++    endif()
 +endif()
 +
  # Load the targets for the omath library
