@@ -17,6 +17,11 @@ vcpkg_cmake_configure(
 vcpkg_cmake_install()
 vcpkg_cmake_config_fixup(CONFIG_PATH "share/cmake/pybind11")
 vcpkg_fixup_pkgconfig()
+vcpkg_replace_string(
+    "${CURRENT_PACKAGES_DIR}/share/pkgconfig/pybind11.pc"
+    "Cflags:"
+    "Cflags: -DPy_NO_LINK_LIB"
+)
 
 file(REMOVE_RECURSE "${CURRENT_PACKAGES_DIR}/debug/")
 
