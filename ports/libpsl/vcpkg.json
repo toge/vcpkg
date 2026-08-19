@@ -3,7 +3,7 @@
   "version": "0.22.0",
   "description": "C library for the Public Suffix List",
   "homepage": "https://rockdaboot.github.io/libpsl/",
-  "license": "MIT",
+  "license": "MIT AND BSD-3-Clause",
   "supports": "!uwp",
   "dependencies": [
     {
