@@ -4,6 +4,8 @@ vcpkg_from_github(
     REF "${VERSION}"
     SHA512 45d18dcc1095335d48af67f91dc2594356437148276bfb6462c988c7648c0977a9b281fced020fa62cef6a2c91b090f18f81ce1a3d335546c079959282ec8075
     HEAD_REF master
+    PATCHES
+        fix-project-version.patch # https://github.com/SpartanJ/efsw/issues/218
 )
 
 string(COMPARE EQUAL "${VCPKG_LIBRARY_LINKAGE}" "dynamic" EFSW_BUILD_SHARED_LIB)
@@ -27,4 +29,7 @@ file(REMOVE_RECURSE "${CURRENT_PACKAGES_DIR}/debug/include")
 
 vcpkg_copy_pdbs()
 
-vcpkg_install_copyright(FILE_LIST "${SOURCE_PATH}/LICENSE")
+vcpkg_install_copyright(FILE_LIST
+    "${SOURCE_PATH}/LICENSE"
+    "${SOURCE_PATH}/src/efsw/String.hpp"
+)
