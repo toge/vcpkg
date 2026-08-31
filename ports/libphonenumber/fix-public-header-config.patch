@@ -1,0 +1,60 @@
+diff --git a/cpp/src/phonenumbers/base/memory/scoped_ptr.h b/cpp/src/phonenumbers/base/memory/scoped_ptr.h
+index eb408b9..ef28412 100644
+--- a/cpp/src/phonenumbers/base/memory/scoped_ptr.h
++++ b/cpp/src/phonenumbers/base/memory/scoped_ptr.h
+@@ -5,6 +5,10 @@
+ #ifndef I18N_PHONENUMBERS_BASE_MEMORY_SCOPED_PTR_H_
+ #define I18N_PHONENUMBERS_BASE_MEMORY_SCOPED_PTR_H_
+ 
++#ifndef I18N_PHONENUMBERS_USE_BOOST
++#define I18N_PHONENUMBERS_USE_BOOST
++#endif
++
+ #if defined(I18N_PHONENUMBERS_USE_BOOST)
+ 
+ #include <boost/scoped_ptr.hpp>
+diff --git a/cpp/src/phonenumbers/base/memory/singleton.h b/cpp/src/phonenumbers/base/memory/singleton.h
+index 46b0620..5cb0fee 100644
+--- a/cpp/src/phonenumbers/base/memory/singleton.h
++++ b/cpp/src/phonenumbers/base/memory/singleton.h
+@@ -17,6 +17,10 @@
+ #ifndef I18N_PHONENUMBERS_BASE_MEMORY_SINGLETON_H_
+ #define I18N_PHONENUMBERS_BASE_MEMORY_SINGLETON_H_
+ 
++#ifndef I18N_PHONENUMBERS_USE_BOOST
++#define I18N_PHONENUMBERS_USE_BOOST
++#endif
++
+ #if defined(I18N_PHONENUMBERS_USE_BOOST)
+ #include "phonenumbers/base/memory/singleton_boost.h"
+ #elif (__cplusplus >= 201103L) && defined(I18N_PHONENUMBERS_USE_STDMUTEX)
+diff --git a/cpp/src/phonenumbers/base/synchronization/lock.h b/cpp/src/phonenumbers/base/synchronization/lock.h
+index a13f0db..ce4baa1 100644
+--- a/cpp/src/phonenumbers/base/synchronization/lock.h
++++ b/cpp/src/phonenumbers/base/synchronization/lock.h
+@@ -17,6 +17,10 @@
+ #ifndef I18N_PHONENUMBERS_BASE_SYNCHRONIZATION_LOCK_H_
+ #define I18N_PHONENUMBERS_BASE_SYNCHRONIZATION_LOCK_H_
+ 
++#ifndef I18N_PHONENUMBERS_USE_BOOST
++#define I18N_PHONENUMBERS_USE_BOOST
++#endif
++
+ #if defined(I18N_PHONENUMBERS_USE_BOOST)
+ #include "phonenumbers/base/synchronization/lock_boost.h"
+ #elif (__cplusplus >= 201103L) && defined(I18N_PHONENUMBERS_USE_STDMUTEX)
+diff --git a/cpp/src/phonenumbers/base/thread_checker.h b/cpp/src/phonenumbers/base/thread_checker.h
+index 6679d9b..df476f4 100644
+--- a/cpp/src/phonenumbers/base/thread_checker.h
++++ b/cpp/src/phonenumbers/base/thread_checker.h
+@@ -17,6 +17,10 @@
+ #ifndef I18N_PHONENUMBERS_BASE_THREAD_CHECKER_H_
+ #define I18N_PHONENUMBERS_BASE_THREAD_CHECKER_H_
+ 
++#ifndef I18N_PHONENUMBERS_USE_BOOST
++#define I18N_PHONENUMBERS_USE_BOOST
++#endif
++
+ #if !defined(I18N_PHONENUMBERS_USE_BOOST)
+ 
+ // Note that I18N_PHONENUMBERS_NO_THREAD_SAFETY must be defined only to let the
