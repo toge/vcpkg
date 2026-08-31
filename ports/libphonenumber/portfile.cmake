@@ -15,12 +15,15 @@ vcpkg_from_github(
         re2-2023-07-01-compat.patch
         # enable C++17 for re2
         enable-cpp17.patch
+        fix-cmake-consumers.patch
+        fix-public-header-config.patch
 )
 
 vcpkg_cmake_configure(
     SOURCE_PATH "${SOURCE_PATH}/cpp"
     OPTIONS
         -DREGENERATE_METADATA=OFF
+        -DUSE_BOOST=ON
         -DUSE_RE2=ON
         -DBUILD_GEOCODER=OFF
         -DUSE_PROTOBUF_LITE=ON
@@ -35,4 +38,3 @@ vcpkg_copy_pdbs()
 file(REMOVE_RECURSE "${CURRENT_PACKAGES_DIR}/debug/include")
 
 vcpkg_install_copyright(FILE_LIST "${SOURCE_PATH}/LICENSE")
-file(INSTALL "${CMAKE_CURRENT_LIST_DIR}/usage" DESTINATION "${CURRENT_PACKAGES_DIR}/share/${PORT}")
